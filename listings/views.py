@@ -6,7 +6,10 @@ from .models import Listing
 def index(request):
     listings = Listing.objects.order_by('-list_date').filter(is_published=True)        #fetch all listings, no raw sql queries
 
-    paginator = Paginator(listings, 6)
+    context = {
+        'listings': listings
+    }
+    paginator = Paginator(listings, 3)
     page = request.GET.get('page')
     paged_listings = paginator.get_page(page)
 
