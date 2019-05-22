@@ -34,7 +34,10 @@
           </nav>
         </div>
       </section>
-    
+      
+      <!-- Alerts-->
+      {% include 'partials/_alerts.html' %}
+
       <!-- Listing -->
       <section id="listing" class="py-4">
         <div class="container">
@@ -180,7 +183,7 @@
                 <input type="hidden" name="listing_id" value="{{ listing.id}}">
                 <div class="form-group">
                   <label for="property_name" class="col-form-label">Property:</label>
-                  <input type="text" name="listing" class="form-control" value="{{listing.title}}" disabled>
+                  <input type="text" name="listing" class="form-control" value="{{listing.title}}" >
                 </div>
                 <div class="form-group">
                   <label for="name" class="col-form-label">Name:</label>
@@ -192,7 +195,7 @@
                   {% endif %}
                 </div>
                 <div class="form-group">
-                  <label for="email" class="col-form-label">Emafil:</label>
+                  <label for="email" class="col-form-label">Email:</label>
                   {% if user.is_authenticated %}
                     <input type="text" name="email" class="form-control" value="{{user.email}}" required>
                   {% else %}
